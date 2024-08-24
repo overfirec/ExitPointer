@@ -1,0 +1,16 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExitPointer", "ExitPointer\ExitPointer.csproj", "{32075194-15AD-44EE-834F-709ACAA03EBE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{32075194-15AD-44EE-834F-709ACAA03EBE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{32075194-15AD-44EE-834F-709ACAA03EBE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{32075194-15AD-44EE-834F-709ACAA03EBE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{32075194-15AD-44EE-834F-709ACAA03EBE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
