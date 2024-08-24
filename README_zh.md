@@ -1,15 +1,17 @@
 # <center><font size="50">ExitPointer</font></center>
-
+# <center><font size="5">[English](README.md)</font></center>
 ___
 
 <p align="center">
-  <img src="Image/InGameEffect.png">
+  <img src="ExitPointer/Image/InGameEffect.png">
 </p>
 
 <div style="text-align: center;"> <font size="5">在你进入建筑后显示一个图像，帮助你找到出口。</font> </div>
 
 
 ![Language](https://img.shields.io/badge/language-c%23-brightgreen)
+
+
 
 
 
