@@ -6,6 +6,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using ExitPointer.Utils;
+using ExitPointer.PluginInfo;
 
 namespace ExitPointer
 {
@@ -29,9 +30,9 @@ namespace ExitPointer
         private void Awake()
         {
             _instance = this;
-            LOGSource = BepInEx.Logging.Logger.CreateLogSource(MyPluginInfo.PLUGIN_NAME);
+            LOGSource = BepInEx.Logging.Logger.CreateLogSource(MyPluginInfo.PLUGIN_GUID);
             _harmony.PatchAll();
-            Log($"{MyPluginInfo.PLUGIN_NAME} version: {MyPluginInfo.PLUGIN_VERSION} loading...");
+            Log($"{MyPluginInfo.PLUGIN_GUID} version: {MyPluginInfo.PLUGIN_VERSION} loading...");
             TryLoadResource();
         }
         

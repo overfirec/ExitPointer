@@ -40,8 +40,8 @@ public class HUDManagerPatch
         _mainExitPointer.SetActive(false);
         _fireExitPointer.SetActive(false);
 
-        _mainExitPointer.SetDefaultStatus(((Component)__instance.loadingDarkenScreen).transform, new Vector3(0.28f, 0.3f, 1f));
-        _fireExitPointer.SetDefaultStatus(((Component)__instance.loadingDarkenScreen).transform, new Vector3(0.28f, 0.3f, 1f));
+        _mainExitPointer.SetDefaultStatus(((Component)__instance.loadingDarkenScreen).transform, new Vector3(0.25f, 0.27f, 1f));
+        _fireExitPointer.SetDefaultStatus(((Component)__instance.loadingDarkenScreen).transform, new Vector3(0.25f, 0.27f, 1f));
     }
 
     [HarmonyPatch("Update"), HarmonyPostfix]
