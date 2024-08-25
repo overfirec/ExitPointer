@@ -31,6 +31,7 @@ namespace ExitPointer
             _instance = this;
             LOGSource = BepInEx.Logging.Logger.CreateLogSource(MyPluginInfo.PLUGIN_NAME);
             _harmony.PatchAll();
+            Log($"{MyPluginInfo.PLUGIN_NAME} version: {MyPluginInfo.PLUGIN_VERSION} loading...");
             TryLoadResource();
         }
         

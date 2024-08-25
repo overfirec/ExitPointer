@@ -47,7 +47,8 @@ public class HUDManagerPatch
     [HarmonyPatch("Update"), HarmonyPostfix]
     public static void UpdatePostfix(ref HUDManager __instance)
     {
-        if (GameNetworkManager.Instance.localPlayerController.isInsideFactory)
+        if (GameNetworkManager.Instance.localPlayerController.isInsideFactory && 
+            GameNetworkManager.Instance.isHostingGame)
         {
             if (PlayerCamera == null || Entrances == null || Entrances.Item1 == null || Entrances.Item2 == null)
             {
@@ -68,6 +69,5 @@ public class HUDManagerPatch
             _mainExitPointer?.SetActive(false);
             _fireExitPointer?.SetActive(false);
         }
-        
     }
 }
