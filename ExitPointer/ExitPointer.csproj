@@ -3,9 +3,9 @@
     <!-- BepInEx Properties -->
     <PropertyGroup>
         <AssemblyName>ExitPointer</AssemblyName>
-        <Product>ExitPointer</Product>
+        <Product>overfirec_ExitPointer</Product>
         <!-- Change to whatever version you're currently on. -->
-        <Version>1.0.0</Version>
+        <Version>1.0.2</Version>
     </PropertyGroup>
 
     <!-- Project Properties -->
@@ -71,5 +71,9 @@
       <EmbeddedResource Include="Image\FireExitPointer.png" />
       <None Remove="Image\ArrowImage_MainExit.png" />
       <EmbeddedResource Include="Image\MainExitPointer.png" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="obj\" />
     </ItemGroup>
 </Project>
