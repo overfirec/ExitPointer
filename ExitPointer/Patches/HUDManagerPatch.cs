@@ -1,6 +1,7 @@
 using System;
 using BepInEx.Logging;
 using ExitPointer.Utils;
+using GameNetcodeStuff;
 using HarmonyLib;
 using UnityEngine;
 
@@ -8,10 +9,13 @@ using UnityEngine;
 namespace ExitPointer.Patches;
 
 [HarmonyPatch(typeof(HUDManager))]
-public class HUDManagerPatches
+public class HUDManagerPatch
 {
     private static ExitPointerClass? _mainExitPointer;
     private static ExitPointerClass? _fireExitPointer;
+    internal static Camera? PlayerCamera;
+    internal static Tuple<Transform, Transform>? Entrances;
+    internal static bool IsAlready;
         
     [HarmonyPatch("Start"), HarmonyPostfix]
     public static void StartPostfix(ref HUDManager __instance)
@@ -43,24 +47,27 @@ public class HUDManagerPatches
     [HarmonyPatch("Update"), HarmonyPostfix]
     public static void UpdatePostfix(ref HUDManager __instance)
     {
-        if (RoundManagerPatches.IsAlready)
+        if (GameNetworkManager.Instance.localPlayerController.isInsideFactory)
         {
-            if (StartOfRound.Instance.localPlayerController.isInsideFactory)
+            if (PlayerCamera == null || Entrances == null || Entrances.Item1 == null || Entrances.Item2 == null)
             {
-                _mainExitPointer?.SetActive(true);
-                _fireExitPointer?.SetActive(true);
-                
-                _mainExitPointer.MovePointer(RoundManagerPatches.PlayerCamera, RoundManagerPatches.Entrances.Item1);
-                _fireExitPointer.MovePointer(RoundManagerPatches.PlayerCamera, RoundManagerPatches.Entrances.Item2);
-                
-                ExitPointerPluginRegister.Log("ExitPointers are active", LogLevel.Info);
+                PlayerCamera = GameNetworkManager.Instance.localPlayerController.gameplayCamera;
+                Entrances = Extensions.GetExitPosition();
+                ExitPointerPluginRegister.Log("Try to get Entrances...");
             }
             
-            else
-            {
-                _mainExitPointer?.SetActive(false);
-                _fireExitPointer?.SetActive(false);
-            }
+            _mainExitPointer?.SetActive(true);
+            _fireExitPointer?.SetActive(true);
+            
+            _mainExitPointer.MovePointer(PlayerCamera, Entrances.Item1);
+            _fireExitPointer.MovePointer(PlayerCamera, Entrances.Item2);
         }
+        
+        else
+        {
+            _mainExitPointer?.SetActive(false);
+            _fireExitPointer?.SetActive(false);
+        }
+        
     }
 }

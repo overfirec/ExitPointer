@@ -92,7 +92,7 @@ internal static class Extensions{
             }
         }
 
-        if (fireExitEntrance is not null && mainExitEntrance is not null)
+        if (fireExitEntrance != null && mainExitEntrance != null)
         {
             return new Tuple<Transform, Transform>(mainExitEntrance, fireExitEntrance);
         }
